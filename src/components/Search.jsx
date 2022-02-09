@@ -41,7 +41,7 @@ function Search({ setResult, valueCity, setValidationShow, valueDistricts }) {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-        `Bearer ${apiKey}`
+        `Bearer ${apiKey}` //Api key kısmı için kendi apinizi alın.
       },
     };
 
