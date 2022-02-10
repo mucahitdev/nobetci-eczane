@@ -12,6 +12,7 @@ function OptionsCities({setValueCity,valueCity,setvalueDistricts}) {
   return (
     < >
       <Select 
+        className="w-100"
         placeholder="İli seç" 
         value={valueCity} 
         onChange={handleChange} 

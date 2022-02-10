@@ -1,4 +1,6 @@
 import React from "react";
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BiMap } from 'react-icons/bi';   
 
 function Pharmacy({
   Adresi,
@@ -13,24 +15,41 @@ function Pharmacy({
   longitude,
 })
  {
-   const url = `https://www.google.com/maps?daddr=${latitude},${longitude}`
+
+  const yolText = () => {
+    if(YolTarifi === "" || YolTarifi === null){
+      return YolTarifi =`${EczaneAdi} için yol tarifi bulunmamaktadır.` 
+    }else {
+      return YolTarifi.slice(0,100);
+    }
+  }
+  yolText()
+  const url = `https://www.google.com/maps?daddr=${latitude},${longitude}`
   return (
-    <div className="col-12 col-md-6 col-lg-4 me-2 ms-2 mt-3  card">
+   <div className="col-12 col-sm-5 col-md-4 col-lg-3 mt-4 ">
+      <div className="card">
       <div className="card-body">
         <h5 className="card-title"><b>{EczaneAdi}</b></h5>
         <p className="card-text"><b>Adres :</b>{Adresi}</p>
       </div>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item"><b>Telefon :</b>{Telefon}</li>
-        <li className="list-group-item"><b>Yol tarifi :</b> {YolTarifi === "" || YolTarifi === null ? `${EczaneAdi} için yol tarifi bulunmamaktadır.`  :YolTarifi} </li>
-        <li className="list-group-item"><b>Şehir : </b>{Sehir} <b>İlçe : </b>{ilce} </li>
-        <button className="btn btn-primary ">
-          <a href={url} className="text-white"><b>{EczaneAdi}</b>'ni haritada göster.</a>
-        </button>
+      <ul className="list-group list-group-flush ">
+        <li className="list-group-item bg-transparent"><b>Tel: </b><a href={`tel:${Telefon}`}>{Telefon}</a></li>
+        <li className="list-group-item bg-transparent" style={{maxHeight: "50px"}}><b>Yol tarifi :</b> {YolTarifi} </li>
+        <li className="list-group-item bg-transparent"><b>Şehir:</b>{Sehir}<b> İlçe:</b>{ilce} </li>
+        <div className="row">
+          <a href={url} className="text-white reset pe-1  col-7">
+            <button className="btn btn-primary  btn-card w-100">Haritada göster <BiMap /></button>
+          </a>
+          <a href={`tel:${Telefon}`} className="text-white reset ps-0  col-5 ">
+            <button className="btn btn-success btn-card w-100">Ara <BsFillTelephoneFill  /></button>
+          </a>
+        </div>
       </ul>
-      <div className="card-body"></div>
-    </div>
+      </div>
+   </div>
   );
 }
 
 export default Pharmacy;
+
+// text-truncate

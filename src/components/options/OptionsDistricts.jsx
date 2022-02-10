@@ -14,7 +14,8 @@ function OptionsDistricts({valueCity,setvalueDistricts,valueDistricts}) {
   let selectedDis = ilceler.filter( ilce => ilce.citiesid === valueCity.value )
   return (
     <>
-      <Select 
+      <Select
+        className="w-100" 
         styles={customStyles}
         placeholder="İlçeyi seç"
         value={selectedDis.label}

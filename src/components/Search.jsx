@@ -1,7 +1,7 @@
 import React from "react";
 import apiKey from "../asset/apiKey";
 
-function Search({ setResult, valueCity, setValidationShow, valueDistricts }) {
+function Search({ setResult, valueCity, setValidationShow, valueDistricts,setTopActive }) {
   const cevir = (text) => {
     var trMap = {
       çÇ: "c",
@@ -31,6 +31,7 @@ function Search({ setResult, valueCity, setValidationShow, valueDistricts }) {
     } else {
       ilceKucuk = "";
     }
+    setTopActive(false)
     let sehirBuyuk = valueCity.label;
     const sehirKucuk = cevir(sehirBuyuk);
     var axios = require("axios").default;
@@ -56,8 +57,8 @@ function Search({ setResult, valueCity, setValidationShow, valueDistricts }) {
       });
   };
   return (
-    <div className="col-12 d-flex justify-content-center ">
-      <button className="btn btn-danger text-white" onClick={eczanebul}>
+    <div className="col-12 py-2 col-lg-2  d-flex align-items-start justify-content-center">
+      <button className="btn w-100 btn-danger text-white" onClick={eczanebul}>
         <b>Eczaneyi Bul </b>
       </button>
     </div>

@@ -1,12 +1,40 @@
-
-.App {
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400&display=swap');
+.App ,.ilkcont{
   height: 100vh;
 }
 
 body {
   background-image: url(./asset/bg-img.jpg);
- 
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 a {
   text-decoration:none
 }
+.h100px {
+  height: 100px !important;
+}
+.listem {
+  padding: 10px;
+}
+
+.card {
+  font-size:0.8rem;
+  min-height: 300px;
+}
+.btn-card {
+  font-size: 0.7rem ;
+  font-weight: bold;
+  padding: 5px 2px;
+}
+.btn {
+  outline: none !important;
+  border: 0;
+  box-shadow: none;
+}
+
+.btn:focus {
+  outline: none !important;
+  border: 0;
+  box-shadow: none;
+}
+
