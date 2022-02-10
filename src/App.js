@@ -22,7 +22,7 @@ function App() {
   console.log(result);
 
   return (
-    <div className="App container mt-3">
+    <div className="App container">
       <div className={`container ${topActive ? "h-100":""}`}>
       <div
         className={`row align-items-center justify-content-center ${topActive ? ' h-100' : ''}`}>
