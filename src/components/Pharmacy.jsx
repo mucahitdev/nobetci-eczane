@@ -13,9 +13,14 @@ function Pharmacy({
   ilce,
   latitude,
   longitude,
+  distanceKm
 })
  {
-
+   let yakinlik;
+   if(distanceKm){
+    yakinlik=distanceKm.toFixed(1)
+   }
+ 
   const yolText = () => {
     if(YolTarifi === "" || YolTarifi === null){
       return YolTarifi =`${EczaneAdi} için yol tarifi bulunmamaktadır.` 
@@ -29,7 +34,7 @@ function Pharmacy({
    <div className="col-12 col-sm-5 col-md-4 col-lg-3 mt-4 ">
       <div className="card">
       <div className="card-body">
-        <h5 className="card-title"><b>{EczaneAdi}</b></h5>
+        <h5 className="card-title"><b>{EczaneAdi}</b> {distanceKm ?  <span className="badge bg-secondary float-end rounded-pill">{yakinlik} km</span> : ""} </h5>
         <p className="card-text"><b>Adres :</b>{Adresi}</p>
       </div>
       <ul className="list-group list-group-flush ">

@@ -19,7 +19,7 @@ function App() {
     }
   }, [valueCity]);
 
-  console.log(result);
+
 
   return (
     <div className="App container">
@@ -35,7 +35,7 @@ function App() {
                 setvalueDistricts={setvalueDistricts}
               />
               {validationShow && (
-                <div className="pt-2 text-white ">İl seçmek zorunludur</div>
+                <div className="pt-2 text-danger "><b>İl seçmek zorunludur</b></div>
               )}
             </div>
 
