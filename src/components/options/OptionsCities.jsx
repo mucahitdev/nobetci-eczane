@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import iller from "./il"
 
-function OptionsCities({setValueCity,valueCity,setvalueDistricts}) {
+function OptionsCities({setValueCity,valueCity,setvalueDistricts,lang}) {
 
     const handleChange = (e) => {
         setvalueDistricts("");
@@ -13,7 +13,7 @@ function OptionsCities({setValueCity,valueCity,setvalueDistricts}) {
     < >
       <Select 
         className="w-100"
-        placeholder="İli seç" 
+        placeholder={lang === "tr-TR" ? "İli seç" : "Select province"} 
         value={valueCity} 
         onChange={handleChange} 
         options={iller} 

@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import ilceler from "./ilce"
 
-function OptionsDistricts({valueCity,setvalueDistricts,valueDistricts}) {
+function OptionsDistricts({valueCity,setvalueDistricts,valueDistricts,lang}) {
   const customStyles = {
     singleValue: (provided) => {
       const opacity = valueDistricts === "" ? 0 : 1;
@@ -17,7 +17,7 @@ function OptionsDistricts({valueCity,setvalueDistricts,valueDistricts}) {
       <Select
         className="w-100" 
         styles={customStyles}
-        placeholder="İlçeyi seç"
+        placeholder={lang === "tr-TR" ? "İlçeyi seç": "Select county"}
         value={selectedDis.label}
         onChange={setvalueDistricts} 
         options={selectedDis} />

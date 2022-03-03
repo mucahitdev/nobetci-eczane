@@ -3,10 +3,13 @@ import apiKey from "../asset/apiKey";
 import { GiPositionMarker } from 'react-icons/gi';
 import { usePosition } from 'use-position';
 import axios from "axios";
+import { IntlProvider, FormattedMessage } from "react-intl";
+import { appLang } from "./lang";
 
 
 
-function Search({ setResult, valueCity, setValidationShow, valueDistricts,setTopActive }) {
+
+function Search({ setResult, valueCity, setValidationShow, valueDistricts,setTopActive,lang }) {
   const {
     latitude,
     longitude,
@@ -67,6 +70,7 @@ function Search({ setResult, valueCity, setValidationShow, valueDistricts,setTop
   };
   const konumlabul = () => {
     setTopActive(false)
+    setValidationShow(false)
     var options = {
       method: "GET",
       url: `https://www.nosyapi.com/apiv2/pharmacy/distance?latitude=${latitude}&longitude=${longitude}`,
@@ -89,12 +93,14 @@ function Search({ setResult, valueCity, setValidationShow, valueDistricts,setTop
   
   }
   return (
-    <div className="col-12 py-2 col-lg-2  d-flex align-items-start justify-content-center">
-      <button className="btn w-100 btn-danger text-white" onClick={eczanebul}>
-        <b>Eczaneyi Bul </b>
+    <div className="col-12 py-2 col-lg-2 d-flex align-items-start justify-content-center">
+      <button className="btn w-100 btn-danger btn-eczane text-white" onClick={eczanebul}>
+        <IntlProvider locale={lang} messages={appLang[lang]}> 
+          <b> <FormattedMessage id="bul"/></b>
+        </IntlProvider>
       </button>
-      <button className="btn  btn-info text-white" onClick={konumlabul}>
-        <GiPositionMarker></GiPositionMarker>
+      <button className="btn  btn-info btn-konum w-50 text-white" onClick={konumlabul}>
+        <GiPositionMarker />
       </button>
     </div>
   );
