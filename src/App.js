@@ -9,12 +9,12 @@ import List from "./components/List";
 import Search from "./components/Search";
 
 function App() {
-  const [valueCity, setValueCity] = useState("");
-  const [valueDistricts, setvalueDistricts] = useState("");
-  const [validationShow, setValidationShow] = useState(false);
-  const [result, setResult] = useState([]);
-  const [topActive, setTopActive] = useState(true);
-  const [lang, setLang] = useState(localStorage.getItem("lang") || navigator.language || "tr-TR");
+  const [valueCity, setValueCity] = useState(""); // Seçilen şehir 
+  const [valueDistricts, setvalueDistricts] = useState(""); //Seçilen ilçe
+  const [validationShow, setValidationShow] = useState(false); 
+  const [result, setResult] = useState([]); // Api den dönen cevab
+  const [topActive, setTopActive] = useState(true); // Arama yapıldığında search kısmını yukarı çekmek için
+  const [lang, setLang] = useState(localStorage.getItem("lang") || "tr-TR"); // Dil tercihini localde tutmak için
 
   useEffect(() => {
     if (valueCity.label !== undefined) {
